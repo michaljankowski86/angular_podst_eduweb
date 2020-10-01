@@ -17,6 +17,8 @@ export class AppComponent {
     favourite: true,
   };
 
+  size = 26;
+
   save(event) {
     console.log(event);
   }

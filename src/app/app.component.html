@@ -1,3 +1,9 @@
+<style>
+  .playlist-row {
+    border-bottom: 2px solid transparent;
+  }
+</style>
+
 <div class="container">
   <div class="row mt-1">
     <div class="col">
@@ -19,7 +25,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr
+            class="playlist-row"
+            [style.borderBottomColor]="playlist.color"
+            [style.fontSize.px]="size"
+          >
             <td>1</td>
             <td>{{ playlist.name }}</td>
             <td>23</td>
