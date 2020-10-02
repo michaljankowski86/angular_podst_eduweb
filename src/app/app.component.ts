@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'ng-podst';
 
-  selected = null;
+  selected = false;
 
   constructor() {}
 
@@ -16,7 +16,7 @@ export class AppComponent {
     name: 'The best songs',
     tracks: 23,
     color: '#ff0000',
-    favourite: true,
+    favourite: false,
   };
 
   size = 26;

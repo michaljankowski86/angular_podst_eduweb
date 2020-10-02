@@ -55,7 +55,7 @@
           <p class="card-text">Opis playlisty</p>
         </div>
 
-        <div class="card-block">
+        <div *ngIf="playlist.favourite == true" class="card-block">
           <div class="form-group">
             <label>Nazwa:</label>
             <input
@@ -67,6 +67,7 @@
           <div class="form-group">
             <label>Tracks:</label>
             <input
+              disabled
               type="text"
               [value]="playlist.tracks + ' utworów'"
               class="form-control"
