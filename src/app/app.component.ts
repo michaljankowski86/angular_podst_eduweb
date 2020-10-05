@@ -6,22 +6,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'ng-podst';
+  title = 'Witaj w kursie Angular!';
 
   selected = null;
 
-  constructor() {}
+  edited = {};
 
   playlist = {
-    name: 'The best songs',
+    name: 'The best of EduWeb!',
     tracks: 23,
-    color: '#ff0000',
-    favourite: false,
+    color: '#FF0000',
+    favourite: true,
   };
 
-  size = 26;
-
   save(event) {
-    console.log(event);
+    console.log('Zapisano', event);
   }
+
+  constructor() {}
 }
