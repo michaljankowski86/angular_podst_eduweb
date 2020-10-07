@@ -24,29 +24,25 @@
         </thead>
         <tbody>
           <tr
+            *ngFor="let playlist of playlists; let i = index"
             class="playlist-row"
             [ngClass]="{ 'table-active': selected == playlist }"
             [ngStyle]="{ borderBottomColor: playlist.color }"
             (click)="select(playlist)"
           >
-            <td>1</td>
+            <td>{{ i + 1 }}.</td>
             <td>{{ playlist.name }}</td>
-            <td>23</td>
+            <td>{{ playlist.tracks }}</td>
             <td>
               <label
-                ><input type="checkbox" [(ngModel)]="playlist.favourite" />
+                ><input
+                  type="checkbox"
+                  [(ngModel)]="playlist.favourite"
+                  (click)="$event.stopPropagation()"
+                />
                 Ulubiona</label
               >
             </td>
-          </tr>
-          <tr
-            (click)="select(null)"
-            [ngClass]="{ 'table-active': selected == null }"
-          >
-            <td>2</td>
-            <td>Angular Greatest Hits</td>
-            <td>2</td>
-            <td>false</td>
           </tr>
         </tbody>
       </table>
@@ -67,12 +63,12 @@
 
         <div class="card" *ngSwitchCase="'selected'">
           <div class="card-block">
-            <h4 class="card-title">Playlista "{{ playlist.name }}"</h4>
+            <h4 class="card-title">Playlista "{{ selected.name }}"</h4>
             <p class="card-text">Wybrana Playlista</p>
             <div class="form-group">
               <button
                 class="btn btn-default float-xs-right"
-                (click)="edit(playlist)"
+                (click)="edit(selected)"
               >
                 Edytuj
               </button>

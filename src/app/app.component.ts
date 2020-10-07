@@ -14,21 +14,24 @@ export class AppComponent {
 
   mode = 'none';
 
-  playlist = {
-    name: 'The best of EduWeb!',
-    tracks: 23,
-    color: '#FF0000',
-    favourite: true,
-  };
+  playlists = [
+    {
+      name: 'Angular Greatest Hits!',
+      tracks: 2,
+      color: '#FF0000',
+      favourite: true,
+    },
+    {
+      name: 'The best of EduWeb!',
+      tracks: 23,
+      color: '#0000FF',
+      favourite: false,
+    },
+  ];
 
   select(playlist) {
-    if (playlist == null) {
-      this.mode = 'none';
-      this.selected = null;
-    } else {
-      this.mode = 'selected';
-      this.selected = playlist;
-    }
+    if (playlist !== this.selected) this.mode = 'selected';
+    this.selected = playlist;
   }
 
   edit(playlist) {
