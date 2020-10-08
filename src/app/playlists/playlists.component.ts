@@ -45,10 +45,6 @@ export class PlaylistsComponent implements OnInit {
     this.edited = newPlaylist;
   }
 
-  save(event) {
-    console.log('Zapisano', event);
-  }
-
   constructor() {}
 
   ngOnInit() {}

@@ -47,7 +47,11 @@
   </div>
   <div class="col">
     <div [ngSwitch]="mode">
-      <app-content-card *ngSwitchDefault></app-content-card>
+      <app-content-card
+        title="Playlista"
+        content="Wybierz Playlistę"
+        *ngSwitchDefault
+      ></app-content-card>
 
       <div class="card" *ngSwitchCase="'selected'">
         <div class="card-block">
@@ -64,49 +68,10 @@
         </div>
       </div>
 
-      <div class="card" *ngSwitchCase="'edit'">
-        <div class="card-block">
-          <h4 class="card-title">Playlista</h4>
-          <p class="card-text">Opis playlisty</p>
-        </div>
-        <div class="card-block">
-          <div class="form-group">
-            <label>Nazwa:</label>
-            <input
-              type="text"
-              [(ngModel)]="selected.name"
-              class="form-control"
-            />
-          </div>
-          <div class="form-group">
-            <label>Utwory:</label>
-            <input
-              type="text"
-              [value]="selected.tracks + ' utwory'"
-              disabled
-              class="form-control"
-            />
-          </div>
-          <div class="form-group">
-            <label>Kolor:</label>
-            <input type="color" [(ngModel)]="selected.color" />
-          </div>
-          <div class="form-group">
-            <label
-              ><input type="checkbox" [(ngModel)]="selected.favourite" />
-              Ulubiona</label
-            >
-          </div>
-          <div class="form-group">
-            <button
-              class="btn btn-success float-xs-right"
-              (click)="save($event)"
-            >
-              Zapisz
-            </button>
-          </div>
-        </div>
-      </div>
+      <app-playlist-form
+        [playlist]="selected"
+        *ngSwitchCase="'edit'"
+      ></app-playlist-form>
     </div>
   </div>
 </div>

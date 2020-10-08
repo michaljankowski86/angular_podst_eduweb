@@ -1,12 +1,12 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-content-card',
   template: `
     <div class="card">
       <div class="card-block">
-        <h4 class="card-title">Playlista</h4>
-        <p class="card-text">Wybierz Playlistę</p>
+        <h4 class="card-title">{{ title }}</h4>
+        <p class="card-text">{{ content }}</p>
       </div>
     </div>
   `,
@@ -17,9 +17,15 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
       }
     `,
   ],
-  encapsulation: ViewEncapsulation.ShadowDom,
+  // inputs: ['title', 'content'],
 })
 export class ContentCardComponent implements OnInit {
+  @Input()
+  title = '';
+
+  @Input()
+  content = '';
+
   constructor() {}
 
   ngOnInit(): void {}
