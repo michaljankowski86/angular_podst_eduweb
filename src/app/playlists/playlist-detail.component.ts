@@ -3,19 +3,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-playlist-detail',
   template: `
-    <div class="card">
-      <div class="card-block">
-        <h4 class="card-title">Playlista "{{ playlist.name }}"</h4>
-        <p class="card-text">Wybrana Playlista</p>
-        <div class="form-group">
-          <button
-            class="btn btn-default float-xs-right"
-            (click)="edit(playlist)"
-          >
-            Edytuj
-          </button>
-        </div>
-      </div>
+    <p class="card-text">Wybrana Playlista</p>
+    <div class="form-group">
+      <button class="btn btn-default float-xs-right" (click)="edit(playlist)">
+        Edytuj
+      </button>
     </div>
   `,
   styles: [],
