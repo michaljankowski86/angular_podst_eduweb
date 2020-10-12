@@ -6,39 +6,13 @@
 <div class="row mt-1">
   <div class="col">
     <h4>Playlisty</h4>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Nazwa</th>
-          <th>Utworów</th>
-          <th>Ulubiona</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          *ngFor="let playlist of playlists; let i = index"
-          class="playlist-row"
-          [ngClass]="{ 'table-active': selected == playlist }"
-          [ngStyle]="{ borderBottomColor: playlist.color }"
-          (click)="select(playlist)"
-        >
-          <td>{{ i + 1 }}.</td>
-          <td>{{ playlist.name }}</td>
-          <td>{{ playlist.tracks }}</td>
-          <td>
-            <label
-              ><input
-                type="checkbox"
-                [(ngModel)]="playlist.favourite"
-                (click)="$event.stopPropagation()"
-              />
-              Ulubiona</label
-            >
-          </td>
-        </tr>
-      </tbody>
-    </table>
+
+    <app-playlists-list
+      [selected]="selected"
+      (selected)="select($event)"
+      [playlists]="playlists"
+    ></app-playlists-list>
+
     <div class="form-group">
       <button class="btn btn-success float-xs-right" (click)="createNew()">
         Nowa Playlista
@@ -53,20 +27,11 @@
         *ngSwitchDefault
       ></app-content-card>
 
-      <div class="card" *ngSwitchCase="'selected'">
-        <div class="card-block">
-          <h4 class="card-title">Playlista "{{ selected.name }}"</h4>
-          <p class="card-text">Wybrana Playlista</p>
-          <div class="form-group">
-            <button
-              class="btn btn-default float-xs-right"
-              (click)="edit(selected)"
-            >
-              Edytuj
-            </button>
-          </div>
-        </div>
-      </div>
+      <app-playlist-detail
+        (editplaylist)="edit($event)"
+        [playlist]="selected"
+        *ngSwitchCase="'selected'"
+      ></app-playlist-detail>
 
       <app-playlist-form
         [playlist]="selected"

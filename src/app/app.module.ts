@@ -8,9 +8,11 @@ import { FormsModule } from '@angular/forms';
 import { PlaylistsComponent } from './playlists/playlists.component';
 import { ContentCardComponent } from './playlists/content-card.component';
 import { PlaylistFormComponent } from './playlists/playlist-form.component';
+import { PlaylistsListComponent } from './playlists/playlists-list.component';
+import { PlaylistDetailComponent } from './playlists/playlist-detail.component';
 
 @NgModule({
-  declarations: [AppComponent, PlaylistsComponent, ContentCardComponent, PlaylistFormComponent],
+  declarations: [AppComponent, PlaylistsComponent, ContentCardComponent, PlaylistFormComponent, PlaylistsListComponent, PlaylistDetailComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
