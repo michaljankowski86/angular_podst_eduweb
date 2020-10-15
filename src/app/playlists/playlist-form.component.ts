@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-playlist-form',
@@ -28,7 +28,7 @@ import { Component, OnInit, Input } from '@angular/core';
         >
       </div>
       <div class="form-group">
-        <button class="btn btn-success float-xs-right" (click)="save($event)">
+        <button class="btn btn-success float-xs-right" (click)="save(playlist)">
           Zapisz
         </button>
       </div>
@@ -40,10 +40,13 @@ export class PlaylistFormComponent implements OnInit {
   @Input()
   playlist;
 
+  @Output('saved')
+  onSave = new EventEmitter();
+
   constructor() {}
 
-  save(event) {
-    console.log('Zapisano', event);
+  save(playlist) {
+    this.onSave.emit(playlist);
   }
 
   ngOnInit(): void {}
