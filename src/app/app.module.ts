@@ -5,15 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { FormsModule } from '@angular/forms';
-import { PlaylistsComponent } from './playlists/playlists.component';
-import { ContentCardComponent } from './playlists/content-card.component';
-import { PlaylistFormComponent } from './playlists/playlist-form.component';
-import { PlaylistsListComponent } from './playlists/playlists-list.component';
-import { PlaylistDetailComponent } from './playlists/playlist-detail.component';
+import { PlaylistsModule } from './playlists/playlists.module';
 
 @NgModule({
-  declarations: [AppComponent, PlaylistsComponent, ContentCardComponent, PlaylistFormComponent, PlaylistsListComponent, PlaylistDetailComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  declarations: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, PlaylistsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
