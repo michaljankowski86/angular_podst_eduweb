@@ -22,21 +22,21 @@ import playlistsData from './playlists.data';
   exports: [PlaylistsComponent],
   providers: [
     PlaylistsService,
-    { provide: 'PlaylistsExampleData', useValue: playlistsData },
-    {
-      provide: 'PlaylistsData',
-      useFactory: (data) => {
-        data.push({
-          id: 123,
-          name: 'test',
-          color: 'red',
-          favourite: false,
-          tracks: 11,
-        });
-        return data;
-      },
-      deps: ['PlaylistsExampleData'],
-    },
+    { provide: 'PlaylistsData', useValue: playlistsData },
+    // {
+    //   provide: 'PlaylistsData',
+    //   useFactory: (data) => {
+    //     data.push({
+    //       id: 123,
+    //       name: 'test',
+    //       color: 'red',
+    //       favourite: false,
+    //       tracks: 11,
+    //     });
+    //     return data;
+    //   },
+    //   deps: ['PlaylistsExampleData'],
+    // },
   ],
 })
 export class PlaylistsModule {}

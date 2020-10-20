@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { PlaylistsService } from './playlists.service';
+import playlistsData from './playlists.data';
 
 @Component({
   selector: 'playlists',
   templateUrl: './playlists.component.html',
   styleUrls: ['./playlists.component.scss'],
+  providers: [
+    PlaylistsService,
+    { provide: 'PlaylistsData', useValue: playlistsData },
+  ],
 })
 export class PlaylistsComponent implements OnInit {
   selected = null;
@@ -19,7 +24,6 @@ export class PlaylistsComponent implements OnInit {
 
   ngOnInit() {
     this.playlists = this.playlistService.getPlaylists();
-    console.log(this.playlists);
   }
 
   select(playlist) {
